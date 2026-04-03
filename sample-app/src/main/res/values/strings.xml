@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Networking Sample</string>
+    <string name="sample_title">Network SDK Sample</string>
+    <string name="fetch_button">Fetch Post</string>
+    <string name="open_auth_demo">Open Auth Demo</string>
+    <string name="status_idle">Tap the button to call the API.</string>
+    <string name="status_loading">Loading post...</string>
+    <string name="status_success">Request completed successfully.</string>
+    <string name="status_error">Request failed.</string>
+    <string name="status_empty">Request returned no content.</string>
+    <string name="auth_demo_title">Bearer Auth Demo</string>
+    <string name="current_token_label">Current bearer token</string>
+    <string name="fetch_authenticated_post">Fetch Authenticated Post</string>
+    <string name="expire_token">Expire Token</string>
+    <string name="refresh_token">Refresh Token</string>
+</resources>
