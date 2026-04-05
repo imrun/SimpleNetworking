@@ -28,14 +28,6 @@ dependencies {
 
 Replace `<tag>` with a GitHub release tag such as `1.0.0`.
 
-## Publish on JitPack
-
-1. Commit and push the repository to GitHub.
-2. Create a version tag, for example `1.0.0`.
-3. Push the tag with `git push origin 1.0.0`.
-4. Open `https://jitpack.io/#imrun/SimpleNetworking` and build that tag.
-5. After the build succeeds, consume `com.github.imrun.SimpleNetworking:network-sdk:1.0.0`.
-
 ## Folder structure
 
 ```text
