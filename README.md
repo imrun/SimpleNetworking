@@ -1,5 +1,7 @@
 # Simple Networking SDK
 
+[![](https://jitpack.io/v/imrun/SimpleNetworking.svg)](https://jitpack.io/#imrun/SimpleNetworking)
+
 Production-grade Android networking SDK built in Kotlin on top of Retrofit, OkHttp, Coroutines, and Flow.
 
 ## Installation
