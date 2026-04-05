@@ -72,7 +72,7 @@ publishing {
             pom {
                 name.set("Simple Networking SDK")
                 description.set("A production-grade Android networking SDK built on Retrofit and OkHttp.")
-                url.set("https://github.com/your-org/simple-networking")
+                url.set("https://github.com/imrun/SimpleNetworking")
 
                 licenses {
                     license {
@@ -83,16 +83,15 @@ publishing {
 
                 developers {
                     developer {
-                        id.set("your-id")
-                        name.set("Your Name")
-                        email.set("you@example.com")
+                        id.set("imrun")
+                        name.set("imrun")
                     }
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/your-org/simple-networking.git")
-                    developerConnection.set("scm:git:ssh://github.com:your-org/simple-networking.git")
-                    url.set("https://github.com/your-org/simple-networking")
+                    connection.set("scm:git:git://github.com/imrun/SimpleNetworking.git")
+                    developerConnection.set("scm:git:ssh://git@github.com/imrun/SimpleNetworking.git")
+                    url.set("https://github.com/imrun/SimpleNetworking")
                 }
             }
         }

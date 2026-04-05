@@ -1,6 +1,9 @@
 package com.simplenetworking.sdk.monitor
 
+import android.Manifest
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresPermission
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
@@ -35,6 +38,7 @@ class NetworkMonitor(
     /**
      * Emits connectivity updates from the platform callback API.
      */
+    @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     fun observeCallback(): Flow<Boolean> = callbackFlow {
         val callback = object : ConnectivityManager.NetworkCallback() {
             override fun onAvailable(network: Network) {
@@ -64,10 +68,16 @@ class NetworkMonitor(
         awaitClose { connectivityManager.unregisterNetworkCallback(callback) }
     }
 
+    @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     private fun isCurrentlyConnected(): Boolean {
-        val activeNetwork = connectivityManager.activeNetwork ?: return false
-        val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
-        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
-            capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val activeNetwork = connectivityManager.activeNetwork ?: return false
+            val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+            capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        } else {
+            @Suppress("DEPRECATION")
+            connectivityManager.activeNetworkInfo?.isConnected == true
+        }
     }
 }

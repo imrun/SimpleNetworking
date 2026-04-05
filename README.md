@@ -2,6 +2,39 @@
 
 Production-grade Android networking SDK built in Kotlin on top of Retrofit, OkHttp, Coroutines, and Flow.
 
+## Installation
+
+Add JitPack to your root repository list:
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+}
+```
+
+Add the SDK dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.imrun.SimpleNetworking:network-sdk:<tag>")
+}
+```
+
+Replace `<tag>` with a GitHub release tag such as `1.0.0`.
+
+## Publish on JitPack
+
+1. Commit and push the repository to GitHub.
+2. Create a version tag, for example `1.0.0`.
+3. Push the tag with `git push origin 1.0.0`.
+4. Open `https://jitpack.io/#imrun/SimpleNetworking` and build that tag.
+5. After the build succeeds, consume `com.github.imrun.SimpleNetworking:network-sdk:1.0.0`.
+
 ## Folder structure
 
 ```text
@@ -174,7 +207,7 @@ val paginator = Paginator<UserDto> { page, cursor ->
 
 ## Local run
 
-Once a Gradle wrapper is added, use:
+Install the sample app with:
 
 ```bash
 ./gradlew :sample-app:installDebug
