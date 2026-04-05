@@ -1,6 +1,5 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.dokka")
     `maven-publish`
     signing
 }
@@ -36,7 +35,6 @@ android {
     publishing {
         singleVariant("release") {
             withSourcesJar()
-            withJavadocJar()
         }
     }
 }
@@ -130,13 +128,5 @@ signing {
     if (!signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications)
-    }
-}
-
-tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
-    dokkaSourceSets.configureEach {
-        skipDeprecated.set(false)
-        reportUndocumented.set(false)
-        jdkVersion.set(11)
     }
 }
